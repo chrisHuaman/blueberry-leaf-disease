@@ -57,7 +57,7 @@ st.markdown("""
 if 'analyzed' not in st.session_state:
     st.session_state.analyzed = False
 
-st.title("🍃 Berry Health")
+st.title("🍃 Detector de Hojas de Arándano")
 st.markdown("---")
 
 # Cliente de Roboflow
@@ -78,7 +78,7 @@ if not st.session_state.analyzed:
             if st.button("Analizar Imagen"):
                 st.session_state.analyzed = True
                 st.session_state.image = uploaded_file
-                st.rerun()  # Updated from experimental_rerun
+                st.rerun()
 
 # Show results if analysis has been done
 if st.session_state.analyzed and hasattr(st.session_state, 'image'):
@@ -105,7 +105,7 @@ if st.session_state.analyzed and hasattr(st.session_state, 'image'):
             # Mostrar resultados
             st.image(cv2.cvtColor(annotated_image, cv2.COLOR_BGR2RGB), 
                     caption="Imagen Analizada",
-                    use_container_width=True)  # Updated from use_column_width
+                    use_container_width=True)
             
             st.markdown("### 📊 Resultados del Análisis")
             
@@ -143,7 +143,6 @@ if st.session_state.analyzed and hasattr(st.session_state, 'image'):
         st.error(f"❌ Error en la detección: {str(e)}")
         if st.button("Intentar nuevamente"):
             st.session_state.analyzed = False
-            st.rerun()  # Updated from experimental_rerun
+            st.rerun()
 else:
-    # Remove the column reference since we're using container
     st.info("👈 Por favor, selecciona una imagen para comenzar el análisis")
