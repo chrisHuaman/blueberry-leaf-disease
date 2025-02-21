@@ -1,0 +1,8 @@
+opencv-python
+supervision
+inference-sdk
+roboflow
+inference
+scikit-learn
+seaborn
+numpy
